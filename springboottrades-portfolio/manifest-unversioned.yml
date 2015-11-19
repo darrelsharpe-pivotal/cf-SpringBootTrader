@@ -1,14 +1,13 @@
 ---
 timeout: 180
 instances: 1
-memory: 512M
+memory: 1024M
 #buildpack: toms-java-buildpack
 env:
     SPRING_PROFILES_ACTIVE: cloud
     JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
-    JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: { memory_sizes: { metaspace: 100m }}]'
 applications:
 - name: portfolio
   random-route: true
-  path: ${path}portfolio-${version}.jar
+  path: libs/portfolio-0.3.0.jar
   services: [ traderdb, discovery-service, circuit-breaker-dashboard, config-server ]
