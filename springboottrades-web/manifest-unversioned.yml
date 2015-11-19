@@ -1,7 +1,7 @@
 ---
 timeout: 180
 instances: 1
-memory: 512M
+memory: 1024M
 #buildpack: toms-java-buildpack
 env:
     SPRING_PROFILES_ACTIVE: cloud
@@ -10,5 +10,5 @@ env:
 applications:
 - name: webtrader
   random-route: true
-  path: ${path}web-${version}.jar
+  path: libs/web-0.3.0.jar
   services: [ discovery-service, circuit-breaker-dashboard, config-server ]
